@@ -1,1 +1,39 @@
+print(noquote("How many samples are there?"))
+n <- as.numeric(readline(noquote("N = ")))
+print(noquote(paste("Sample size", "=", n)))
+
+data00 <- rep(NA,n)
+
+print(noquote("Enter only the FIRST ALPHABET of each student's identity status"))
+
+for (i in 1:n){
+data00[i] <- as.character(readline(noquote("Enter Identity Status: ")))
+}
+
+data <- factor(data00,levels = c("D","F","M",'A'))
+
+library(DescTools)
+
+nsims = 30000
+ident_stat = c("D","F","M",'A')
+domain_ident <- factor(ident_stat,levels = c("D","F","M",'A'))
+g_squared <- rep(NA,nsims)
+n <- length(data)
+
+original_data<- factor(data,levels = c("D","F","M",'A'))
+observed_value<- GTest(table(original_data))$statistic
+
+for (i in 1:nsims){
+shuffled <- table(sample(domain_ident,n, replace=TRUE))
+g_squared[i] <- GTest(shuffled)$statistic
+}
+
+p_value = length(g_squared[g_squared >= observed_value])/nsims
+
+print(p_value)
+
+
+
+
+
 
