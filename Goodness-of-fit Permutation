@@ -10,7 +10,7 @@ for (i in 1:n){
 data00[i] <- as.character(readline(noquote("Enter Identity Status: ")))
 }
 
-data <- factor(data00,levels = c("D","F","M",'A'))
+original_data <- factor(data00,levels = c("D","F","M",'A'))
 
 install.packages("DescTools")
 library(DescTools)
@@ -21,7 +21,7 @@ domain_ident <- factor(ident_stat,levels = c("D","F","M",'A'))
 g_squared <- rep(NA,nsims)
 n <- length(data)
 
-original_data<- factor(data,levels = c("D","F","M",'A'))
+
 observed_value<- GTest(table(original_data))$statistic
 
 for (i in 1:nsims){
