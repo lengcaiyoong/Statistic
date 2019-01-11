@@ -12,8 +12,9 @@ data00[i] <- as.character(readline(noquote("Enter Identity Status: ")))
 
 original_data <- factor(data00,levels = c("D","F","M",'A'))
 
-install.packages("DescTools")
-library(DescTools)
+suppressWarnings(install.packages("DescTools"))
+suppressWarnings(library(DescTools))
+
 
 nsims = 30000
 ident_stat = c("D","F","M",'A')
