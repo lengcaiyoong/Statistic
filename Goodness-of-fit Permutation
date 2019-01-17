@@ -20,7 +20,6 @@ nsims = 30000
 ident_stat = c("D","F","M",'A')
 domain_ident <- factor(ident_stat,levels = c("D","F","M",'A'))
 g_squared <- rep(NA,nsims)
-n <- length(data00)
 
 
 observed_value<- GTest(table(original_data))$statistic
