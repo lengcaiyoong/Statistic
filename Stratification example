@@ -1,0 +1,78 @@
+#Sampling of Populations Methods and Applications 4 ed.
+#Paul S. Levy
+#pg150
+
+
+
+#create a function which can replace numeric(0) to NA
+replace_NA <- function(x){
+if (length(x) == 0)
+return (NA)
+return(x)
+}
+
+
+
+#data frame
+Mydata<-data.frame(
+C = c(rep(1,7),rep(2,4)),
+Ph = c(1:7,letters[1:4]),
+T = c("C",rep("I",3),rep("C",3),"I","I",rep("C",2)),
+Pr = c(10,9,12,11,9,9.5,9.9,13.5,12.5,12,11))
+
+
+#convert your data to character
+Mydata[,1] <- as.character(Mydata$C)
+Mydata[,2] <- as.character(Mydata$Ph)
+Mydata[,3] <- as.character(Mydata$T)
+
+
+v1<-subset(Mydata,C==1)
+v2<-subset(Mydata,C==2)
+
+m1 <- combn(v1$Ph,6)
+m2 <- combn(v2$Ph,3)
+
+
+n1 <- ncol(m1)
+n2 <- ncol(m2)
+
+
+all.combs <- as.list(rep(NA,n1*n2))
+
+
+#for loop to find all combinations
+
+idx <- 1
+for (i in 1:n1){
+	for(j in 1:n2){
+	  all.combs[[idx]] <- c(m1[,i],m2[,j])
+idx<- idx +1
+}
+}
+
+
+
+stat_summ <- rep(NA,length(all.combs))
+length(stat_summ)
+
+
+#calculate the estimated means
+
+for(i in 1:length(all.combs)){
+	storage_1 <- rep(NA,9)
+	  for (j in 1:9){
+		x <-Mydata$Pr[Mydata$Ph==all.combs[[i]][[j]] & Mydata$T == "I"]
+		storage_1[j] <- replace_NA(x) #replace numeric(0) to NA
+		y <- (7/11)*mean((storage_1[1:6])[!is.na(storage_1[1:6])])+(4/11)*mean((storage_1[7:9])[!is.na(storage_1[7:9])])
+		}
+stat_summ[i] <- y
+}
+
+
+
+library(plyr)
+count(stat_summ)
+hist(stat_summ)
+
+mean(stat_summ) #the expected number of the sampling distribution
