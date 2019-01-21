@@ -64,7 +64,7 @@ for(i in 1:length(all.combs)){
 	  for (j in 1:9){
 		x <-Mydata$Pr[Mydata$Ph==all.combs[[i]][[j]] & Mydata$T == "I"]
 		storage_1[j] <- replace_NA(x) #replace numeric(0) to NA
-		y <- (7/11)*mean((storage_1[1:6])[!is.na(storage_1[1:6])])+(4/11)*mean((storage_1[7:9])[!is.na(storage_1[7:9])])
+		y<- (7/11)*mean(storage_1[1:6],na.rm=T)+(4/11)*mean(storage_1[7:9], na.rm=T)
 		}
 stat_summ[i] <- y
 }
