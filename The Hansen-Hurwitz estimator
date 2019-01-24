@@ -14,9 +14,9 @@ for (i in 1:16){
 	}
 }
 
-res = round((storage[,1]*storage[,2]),5)
+res = round((storage[,1]*storage[,2]),5) #column 3
 
-print(res) #column 3
+
 
 
 ########
@@ -43,6 +43,8 @@ x2 <- x[,4]/x[,2]
 res_2 = (x1 + x2)/2
 
 
-as.matrix(res_2, ncol=1) #column 4
 
+
+as.matrix(res_2, ncol=1) #column 4
+print(res) 
 
