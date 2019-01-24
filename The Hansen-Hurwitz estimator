@@ -1,0 +1,48 @@
+#Levy Sampling of Populations 2008
+#pg339
+# Table 11.3
+
+
+
+all_combn = permutations(length(data$A),2,repeats.allowed=T)
+
+storage <- matrix(rep(NA,length(all_combn)),ncol=2)
+
+for (i in 1:16){
+	for (j in 1:2){
+  	  storage [i,j] <- data$D[data$A == all_combn[i,j]]
+	}
+}
+
+res = round((storage[,1]*storage[,2]),5)
+
+print(res) #column 3
+
+
+########
+
+
+storage_2 <- matrix(rep(NA,length(all_combn)),ncol=2)
+
+
+for (i in 1:16){
+	for (j in 1:2){
+  	  storage_2 [i,j] <- data$C[data$A == all_combn[i,j]]
+	}
+}
+
+
+x <- cbind(storage, storage_2)
+
+
+x1 <- x[,3]/x[,1]
+
+x2 <- x[,4]/x[,2]
+
+
+res_2 = (x1 + x2)/2
+
+
+as.matrix(res_2, ncol=1) #column 4
+
+
