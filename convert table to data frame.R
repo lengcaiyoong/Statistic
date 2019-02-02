@@ -76,6 +76,8 @@ head(x,n[1]+5) ; tail(x)
 
 
 
+# 5. set response as factor
+x$Response <- as.factor(x$Response)
 
 
 
