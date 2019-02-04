@@ -53,7 +53,7 @@ nI      <-      # number of interval needed
   
     #example
 c1  <-  data00$x                    # eg. data00$x ; column of continuous variable
-nI  <-  4                           # number of interval needed 
+nI  <-  7                           # number of interval needed 
 profile <-data00$profile          # eg. data00[,1] ; assigned number of each obsrvatation 
 
 
@@ -97,5 +97,18 @@ z <- do.call(rbind,storage_3)
 sum(z)
 
 print(z)
+
+
+
+
+
+#plot graph
+plot(1:length(unique(data00$y)),z[1,],type="o",pch=1, col="red", ylim=c(0,max(z))) #first line
+
+
+#add extra lines
+    #examples of line 2 and 5
+lines(1:length(unique(data00$y)),z[2,],type="o",pch=3, col="blue")
+lines(1:length(unique(data00$y)),z[5,],type="o",pch=5, col="black")
 
 
