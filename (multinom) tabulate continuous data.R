@@ -103,12 +103,8 @@ t(z)
 
 
 #plot graph
-plot(1:length(unique(data00$y)),z[1,],type="o",pch=1, col="red", ylim=c(0,max(z))) #first line
-
-
-#add extra lines
-    #examples of line 2 and 4
-lines(1:length(unique(data00$y)),z[2,],type="o",pch=3, col="blue")
-lines(1:length(unique(data00$y)),z[4,],type="o",pch=4, col="black")
+plot(1:ncol(t(z)),t(z)[1,],type="o",pch=1, col="red", ylim=c(0,max(z))) #first line
+lines(1:ncol(t(z)),t(z)[2,],type="o",pch=3, col="blue")
+lines(1:ncol(t(z)),t(z)[3,],type="o",pch=4, col="black")
 
 
