@@ -103,7 +103,7 @@ t(z)
 
 
 #plot graph
-plot(1:ncol(t(z)),t(z)[1,],type="o",pch=1, col="red", ylim=c(0,max(z))) #first line
+plot(1:ncol(t(z)),t(z)[1,],type="o",pch=1, col="red", ylim=c(0,max(z)),xlab="Interval",ylab="Frequency") #first line
 lines(1:ncol(t(z)),t(z)[2,],type="o",pch=3, col="blue")
 lines(1:ncol(t(z)),t(z)[3,],type="o",pch=4, col="black")
 
