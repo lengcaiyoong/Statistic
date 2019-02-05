@@ -7,8 +7,12 @@
               #https://newonlinecourses.science.psu.edu/stat504/node/226/
               #https://newonlinecourses.science.psu.edu/stat504/sites/onlinecourses.science.psu.edu.stat504/files/lesson08/gator/index.txt
        
-       
-data <- 
+  ## example 2 (convert matrix to data frame if neccesary)
+      data <- as.data.frame(t(new_student_data))
+      data$Age <- 7:12  
+  
+data <-  
+ 
   
   
   
