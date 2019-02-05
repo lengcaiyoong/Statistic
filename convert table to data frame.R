@@ -33,7 +33,7 @@ table_convert2_data = function(x,a,b){
 # 3. input parameters
 
 #example
-r = c("F","I","R","B","O") # response level
+r = c("F","I","R","B","O") # response level ; ; colnames(data)[5:9]
 a = 5 # 1st column of counts
 b = 9 # Last column of counts
       #a and b is the column which decide the amount of duplication
@@ -69,7 +69,7 @@ x$Response <- Response
 x <- x[,-c(a:b)]
 
 
-head(x,n[1]+5) ; tail(x)
+head(x) ; tail(x)
 
 
 
