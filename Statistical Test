@@ -1,0 +1,160 @@
+
+
+data entry(ID, category)
+a) identify sampling method
+	i) create base weights column
+b) by default MAR non-response is based on YEAR, can choose MCAR, or other MAR
+	i) do nth vs MAR Year (need data entry) vs other MAR
+     		a) do nth vs group based on variable
+     ii) different covariates
+		a) group sample based on certain variable
+		b) provide Nh
+		c) Nh/sum of weight = new weigthing
+    iii) create new weights column
+c) Rao-Scott adjustment
+	i) variance (Select sampling type)
+		http://support.sas.com/documentation/cdl/en/statug/66859/HTML/default/viewer.htm#statug_surveyfreq_details50.htm#statug.surveyfreq.sfreqdc1oneway
+	ii) weigthing (select non-response, sampling type)
+     iii) X^2 statistic
+
+
+
+
+########### INTRO #############
+
+#insert sampling frame as s_frame
+	#assign department code into s_frame
+	#assign uniqueness to department code (sort uniqueness)
+#insert sample outcome as s_out
+	#crete extra dept code
+#name weight column as B_WEIGHT
+#library dplyr and sampling packages
+
+
+
+
+########### BASE WEIGHT #############
+
+#SRS 
+s_out$B_WEIGHT <- rep(length(s_frame$PSEUDO.ID)/n, nrow(s_out))
+
+
+
+
+#STRATIFIED
+w_h = as.integer(table(s_frame$DEPT_CODE))/ (n/length(uni)) #Nh/nh
+str_storage = rep(NA,nrow(s_out))
+    for (i in 1:nrow(s_out)){
+	str_storage[i] <- w_h [ which(uni == s_out$DEPT_CODE[i]) ]
+				}
+s_out$B_WEIGHT <- str_storage
+
+
+
+
+
+#CLUSTER
+	#reassign n and mi with readline
+	 #if satisfied condition, automatically execute with or without replacement calculation
+
+
+ #with replacement
+	s_out$B_WEIGHT <- rep(nrow(s_frame)/(n*mi), nrow(s_out))	#Mo / (n*mi)
+
+
+ #without replacement
+	w_cl = as.numeric(table(s_frame$DEPT_CODE)) / (nrow(s_frame)/n)
+	cls_storage = rep(NA,nrow(s_out))
+	cls_storage2 = rep(NA,nrow(s_out))
+		for (i in 1:nrow(s_out)){
+	 	   cls_storage[i]  <- w_cl [ which(uni == s_out$DEPT_CODE[i]) ]
+		   cls_storage2[i] <- as.numeric(table(s_frame$DEPT_CODE)) [ which(uni == s_out$DEPT_CODE[i]) ]
+						}
+	s_out$B_WEIGHT <- (cls_storage * (mi/cls_storage2))^-1
+
+
+
+
+
+
+############## NON-RESPONSE #############
+
+#MCAR
+
+
+#MAR (4 YEARs by default)
+	#input Nh
+
+
+
+ s_out   <- mutate( s_out , NEW.VARIABLE = as.integer(substr(s_out$PSEUDO.ID,2,3))  ) #create YEARS column
+ uni_new <- sort(unique(s_out$NEW.VARIABLE))
+
+ by_nwvar <- group_by(s_out, NEW.VARIABLE)       #group s_out by New variable
+ sum_BW <- summarize(by_nwvar, sum(B_WEIGHT))	#sum base weight in each class
+ Fweight = Nh / (sum_BW[[2]])				#final weight stored in vector in NEW.VARIABLE order
+ nrsp_storage = rep(NA,nrow(s_out))
+ for (i in 1:nrow(s_out)){				#for loop assign each row with Fweight
+		nrsp_storage[i] <- Fweight [ which[ uni_new == s_out$NEW.VARIABLE[i] ]	 ]
+				}
+ s_out$F_WEIGHT <- nrsp_storage
+
+
+
+
+#MAR (NEW VARIABLE)
+	#input Nh
+
+ uni_new <- sort(unique(s_out$NEW.VARIABLE))
+
+ by_nwvar <- group_by(s_out, NEW.VARIABLE)       #group s_out by New variable
+ sum_BW <- summarize(by_nwvar, sum(B_WEIGHT))	 #sum base weight in each class
+ Fweight = Nh / (sum_BW[[2]])				 #final weight stored in vector in NEW.VARIABLE order
+ nrsp_storage = rep(NA,nrow(s_out))
+ for (i in 1:nrow(s_out)){				 #for loop assign each row with Fweight
+		nrsp_storage[i] <- Fweight [ which[ uni_new == s_out$NEW.VARIABLE[i] ]	 ]
+				}
+ s_out$F_WEIGHT <- nrsp_storage
+
+
+
+
+
+############## Rao-scott adjustment #############
+
+
+# nrow(s_frame) #N
+
+samp_siz = n #if STRATIFIED
+samp_siz = n*mi # if cluster
+
+
+Ec <- nrow(s_frame) / length(unique(s_out$IDENTITY.STATUS))  #expected frequency
+
+	sub_ach <- subset(s_out, IDENTITY.STATUS == "A" | IDENTITY.STATUS == "Achievement" | IDENTITY.STATUS == "achievement" | IDENTITY.STATUS == "a")
+	sub_for <- subset(s_out, IDENTITY.STATUS == "F" | IDENTITY.STATUS == "Forclosure" | IDENTITY.STATUS == "forclosure" | IDENTITY.STATUS == "f" )
+	sub_dif <- subset(s_out, IDENTITY.STATUS == "D" | IDENTITY.STATUS == "Diffusion" | IDENTITY.STATUS == "diffusion" | IDENTITY.STATUS == "d")
+	sub_mor <- subset(s_out, IDENTITY.STATUS == "M" | IDENTITY.STATUS == "Moratorium" | IDENTITY.STATUS == "moratorium" | IDENTITY.STATUS == "m")
+
+Nc <- c(sum(sub_ach$F_WEIGHT), sum(sub_dif$F_WEIGHT), sum(sub_for$F_WEIGHT), sum(sub_mor$F_WEIGHT))  #sum F_WEIGHT for cell c
+Pc <- Nc / nrow(s_frame) #weigthed counts in cell c
+		
+
+Qp <- (samp_siz/nrow(s_frame)) * sum( ( (Nc - Ec)^2 ) / Ec ) 	#Qp  in  http://support.sas.com/documentation/cdl/en/statug/66859/HTML/default/viewer.htm#statug_surveyfreq_details50.htm#statug.surveyfreq.sfreqdc1oneway
+
+D_rao <- sum( 	( 1- Pc )  *    (deff  /    (length(unique(s_out$IDENTITY.STATUS)) - 1 ) )		 )
+
+
+
+deff #C number of elements in vector
+  #assign each variance
+
+
+
+
+
+
+
+X_RAO <- Qp / (D_rao)
+
+
