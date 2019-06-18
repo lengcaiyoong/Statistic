@@ -33,7 +33,8 @@ s_out <- s_out[order(s_out$DEPT_CODE),]
 
 
 	#ask to insert group variable
-n_variablelvl <- readline(noquote("How many levels of variable are there?"))
+print(noquote("How many levels of variable are there?")
+n_variablelvl <- readline(noquote("Number of levels: "))
 
 print(noquote("Enter them one by one"))
 
