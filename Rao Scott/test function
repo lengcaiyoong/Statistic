@@ -1,5 +1,1 @@
-test = function(){
-x = data.frame(A=1:20, B=31:50)
-n = data.frame(A=sample(1:20), B=sample(31:50))
-x[,1] + n[,1]
-}
+
