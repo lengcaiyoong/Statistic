@@ -1,4 +1,6 @@
 
+
+
 print(noquote("Select your sampling frame"))
 readline(prompt="Press [enter] to continue")
 s_frame <- read.csv(file.choose(),head=T)
@@ -13,7 +15,7 @@ suppressWarnings(library(sampling))
 
 
 
-as.integer(substr(s_frame$PSEUDO.ID,4,6))
+	# as.integer(substr(s_frame$PSEUDO.ID,4,6)) #extract only department code
 s_frame <- mutate(s_frame, DEPT_CODE =  as.integer(substr(s_frame$PSEUDO.ID,4,6))   ) #create a new list of DEPT CODE
 uni <- sort(unique(s_frame$DEPT_CODE))
 
@@ -112,3 +114,6 @@ Samp_slct <- function() {
 
 
 Samp_slct()
+
+
+
