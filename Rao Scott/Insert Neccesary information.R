@@ -1,9 +1,21 @@
-
-
 	#insert data
+print(noquote("Select your sampling frame"))
+readline(prompt="Press [enter] to continue")	
 s_frame <- read.csv(file.choose(),head=T, na.strings=c("","NA"))	#read sampling frame
+
+
+print(noquote("Select your sample data"))
+readline(prompt="Press [enter] to continue")	
 s_out <- read.csv(file.choose(),head=T, na.strings=c("","NA"))	#read sample data
 
+
+	#install and activate packages
+suppressWarnings(install.packages("dplyr"))
+suppressWarnings(library(dplyr))
+suppressWarnings(install.packages("DescTools"))
+suppressWarnings(library(DescTools))
+suppressWarnings(install.packages("sampling"))
+suppressWarnings(library(sampling))
 
 
 	#create neccesary column
@@ -17,6 +29,7 @@ strata <- sort(unique(s_out$DEPT_CODE))
 
 	#sort s_out according to DEPT_CODE
 s_out <- s_out[order(s_out$DEPT_CODE),]
+
 
 
 	#ask to insert group variable
@@ -33,12 +46,6 @@ for (i in 1:n_variablelvl){
 variable_lvl <- factor(variablelvl, levels=c(variablelvl))
 
 
-
-	#install and activate packages
-suppressWarnings(install.packages("dplyr"))
-suppressWarnings(library(dplyr))
-suppressWarnings(install.packages("DescTools"))
-suppressWarnings(library(DescTools))
 
 
 
