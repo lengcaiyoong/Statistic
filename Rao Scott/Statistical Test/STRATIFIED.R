@@ -7,7 +7,7 @@ STR = function(s_out,s_frame, strata, variable_lvl){
 	###Any Non-response? 
 	  	if(  any(is.na(s_out$IDENTITY.STATUS))  ){
 			print(noquote("SELECT NONRESPONSE ADJUSTMENT"))
-			ANS1 <- readline(noquote("[WEIGHTING CLASS / IMPUTATION / MCAR] : "))
+			ANS1 <- readline(noquote("[WEIGHTING CLASS / IMPUTATION] : "))
 				} else {
 		      		 }
 	  if (ANS1 == "WEIGHTING CLASS" | ANS1 == "Weighting Class" | ANS1 == "weighting class") {
@@ -88,8 +88,8 @@ STR = function(s_out,s_frame, strata, variable_lvl){
 						stop("Try DIFFERENT variable for IMPUTATION!")
 						}else{
 						     }
-		}else if( ANS1 == "MCAR" | ANS1 == "mcar" | ANS1 == "Mcar"){
-			s_out <- na.omit(s_out)		
+		#}else if( ANS1 == "MCAR" | ANS1 == "mcar" | ANS1 == "Mcar"){
+			#s_out <- na.omit(s_out)		
 		     }else{
 			     }	#IMPUTATION & MCAR END
 		##continue EXACT FORMULA
