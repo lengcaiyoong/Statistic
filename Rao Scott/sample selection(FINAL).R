@@ -80,9 +80,10 @@ CLS_SAMP <- function(){
 			row.names(m2) <- x2[, 1]
 			print(m2)
 			cat( "REMINDER:", "\n", "Please enter these ID into template in the same order!", "\n")
-		}
-		else
-		{					#BREWER METHOD
+		}else if ( n <= 1) {
+			stop("at least 2 CLUSTERS")
+		}else{					
+						#BREWER METHOD
 		  	pik = as.numeric(table(s_frame$DEPT_CODE)) / (nrow(s_frame)/n)
 			s=UPbrewer(pik)
 			bre_storage <- (1:length(pik))[s==1] 		#first stage sampling
