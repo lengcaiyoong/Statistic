@@ -7,9 +7,9 @@ s_frame <- read.csv(file.choose(),head=T)
 
 
 
-#suppressWarnings(install.packages("dplyr"))
+suppressWarnings(install.packages("dplyr"))
 suppressWarnings(library(dplyr))
-#suppressWarnings(install.packages("sampling"))
+suppressWarnings(install.packages("sampling"))
 suppressWarnings(library(sampling))
 
 
