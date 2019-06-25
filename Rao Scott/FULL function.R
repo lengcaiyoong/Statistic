@@ -31,8 +31,8 @@ full = function(){
 			source("https://raw.githubusercontent.com/lengcaiyoong/Statistic/master/Rao%20Scott/Statistical%20Test/STRATIFIED.R ")
 			}else if(ANS_D == "CLUSTER" | ANS_D == "Cluster" | ANS_D == "cluster"){
 				print(noquote("How many primary sampling units you've sampled?"))
-				n <- as.numeric(readline(noquote("n : ")))
-					if (n>2 | max(table(s_frame$DEPT_CODE)) >= nrow(s_frame)/n  ){
+				pn <- as.numeric(readline(noquote("n : ")))
+					if (pn>2 | max(table(s_frame$DEPT_CODE)) >= nrow(s_frame)/pn  ){
 								#source CLS with replacement
 			source("https://raw.githubusercontent.com/lengcaiyoong/Statistic/master/Rao%20Scott/Statistical%20Test/Cluster%20WR.R ")
 					}else{
