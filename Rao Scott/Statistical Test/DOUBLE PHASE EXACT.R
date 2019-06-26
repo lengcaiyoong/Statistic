@@ -109,7 +109,7 @@ DOUBLE = function(s_out,s_frame, strata, variable_lvl){
 		deff= variance_dpp / deffsrs_var
 		D_rao <- sum( 	( 1- Pc )  *    (deff  /    (  length(ident_domain) - 1 ) )		 )
 		X_RAO <- Qp / (D_rao)
-		X_RAO
+		print(X_RAO)
 			}
 									}
 
