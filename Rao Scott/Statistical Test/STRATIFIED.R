@@ -140,7 +140,7 @@ STR = function(s_out,s_frame, strata, variable_lvl,s_out_rgsrs,s_out_rgstr){
 		Qp = (nrow(s_out)/nrow(s_frame)) * sum( ( (Nc - Ec)^2 ) / Ec )	
 		D_rao <- sum( 	( 1- Pc )  *    (deff  /    (length(variable_lvl)-1) )		 )
 		X_RAO <- Qp / (D_rao)
-		X_RAO
+		print(X_RAO)
 	  		         				  }
 
 
