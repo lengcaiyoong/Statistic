@@ -11,7 +11,8 @@ suppressWarnings(install.packages("dplyr"))
 suppressWarnings(library(dplyr))
 suppressWarnings(install.packages("sampling"))
 suppressWarnings(library(sampling))
-
+clc <- function() cat(rep("\n", 50))
+clc()
 
 
 
