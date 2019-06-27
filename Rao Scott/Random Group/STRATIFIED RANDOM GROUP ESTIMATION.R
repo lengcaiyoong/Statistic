@@ -154,6 +154,3 @@ RGVAR_STR = function(s_out,s_frame, strata, variable_lvl,s_out_rgsrs){
 		srsVAR <- RGVAR_SRS(s_out_rgsrs,s_frame, strata, variable_lvl, u_rdgrp)
 		strVAR / srsVAR
 									    }
-
-
-
