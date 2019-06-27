@@ -66,8 +66,4 @@ s_out$IDENTITY.STATUS <- factor(s_out$IDENTITY.STATUS, levels = variable_lvl)
 	#copy same s_out for random group SRS
 s_out_rgsrs <- s_out
 s_out_rgstr <- s_out
-
-
-
-
-
+#s_out_clswor <- s_out
