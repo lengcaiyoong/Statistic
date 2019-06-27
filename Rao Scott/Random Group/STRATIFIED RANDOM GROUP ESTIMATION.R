@@ -39,7 +39,11 @@ RGVAR_STR = function(s_out,s_frame, strata, variable_lvl,s_out_rgsrs){
 		nonreplaced_strata$B_WEIGHT <- unlist(Bweight_nonreplaced , use.names=FALSE)			#assign B_weight to nonreplaced_strata
 		nonreplaced_strata$B0_WEIGHT <- unlist(Bweight_nonreplaced , use.names=FALSE)			#assign B0_weight to nonreplaced_strata
 		nonreplaced_strata$B0_WEIGHT[which(is.na(nonreplaced_strata$IDENTITY.STATUS))] <- 0		#assign zero for NA row
-		nonreplaced_strata$rdgrp_code <- sample(sort(	rep(1:n_rdgrp, (nrow(nonreplaced_strata)/n_rdgrp))	))
+		str_rdgrp_code_storage <- list()
+			for (i in 1:(nrow(nonreplaced_strata)/n_rdgrp)){
+				str_rdgrp_code_storage [[i]]	 <- sample(1:n_rdgrp)
+							     				}
+		nonreplaced_strata$rdgrp_code <- unlist(str_rdgrp_code_storage, use.names=F)			#assign rdgrp_code column
 		rdgrp <- split(nonreplaced_strata, nonreplaced_strata$rdgrp_code)
 	#Check Weight Stability
 		stability_list2 <- list()
