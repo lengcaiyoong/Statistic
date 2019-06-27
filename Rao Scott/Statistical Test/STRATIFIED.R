@@ -145,4 +145,3 @@ STR = function(s_out,s_frame, strata, variable_lvl,s_out_rgsrs,s_out_rgstr){
 
 
 STR(s_out,s_frame, strata, variable_lvl,s_out_rgsrs,s_out_rgstr)
-
