@@ -1,5 +1,8 @@
 
-CLSWOR = function(s_out,s_frame, strata, variable_lvl,pn){
+
+
+
+CLSWOR = function(s_out,s_frame, strata, variable_lvl, pn){
 	#Print Warning Message
 		print(noquote("This is valid only if sample sizes are equal amongst cluster"))
 		readline(prompt="Press [enter] to continue")
@@ -98,6 +101,11 @@ CLSWOR = function(s_out,s_frame, strata, variable_lvl,pn){
 		Qp = (nrow(s_out)/nrow(s_frame)) * sum( ( (Nc - Ec)^2 ) / Ec )	
 		D_rao <- sum( 	( 1- Pc )  *    (deff  /    (length(variable_lvl)-1) )		 )
 		X_RAO <- Qp / (D_rao)
+  ###check if zero variance calculated (applied RANDOM GROUP METHOD)
+	if(any(clsVAR == 0)){
+			stop("Found ZERO variance! Secondary sampling units are too small!")
+	}else{
+	     }
 		print(X_RAO)
 									}
 
