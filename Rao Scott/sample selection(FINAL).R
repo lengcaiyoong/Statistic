@@ -61,7 +61,7 @@ CLS_SAMP <- function(){
 				n <- as.numeric(readline(noquote("n = ")))
 		print(noquote("How many secondary units IN EACH CLUSTER you wanna have?"))
 				mi <- as.numeric(readline(noquote("mi = ")))
-		if ( n>2 | max(table(s_frame$DEPT_CODE)) >= nrow(s_frame)/n  )
+		if ( n>2 | max(table(s_frame$DEPT_CODE)) >= nrow(s_frame)/n | mi >= 15 )
 		{					#LAHIRI METHOD
 		  cls_storage <- rep(NA,n)
 		  j=1
