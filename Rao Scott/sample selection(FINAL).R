@@ -83,7 +83,7 @@ CLS_SAMP <- function(){
 			m2 <- x2[,-1]
 			row.names(m2) <- x2[, 1]
 			print(m2)
-			cat( "REMINDER:", "\n", "Please enter these ID into template in the SAME ORDER!", "\n", "Please REMEMBER how many primary units(n) have selected!",  "\n")
+			cat("\n", "REMINDER:", "\n", "Please enter these ID into template in the SAME ORDER!", "\n", "Please REMEMBER how many primary units(n) have selected!",  "\n")
 		}else if ( n <= 1) {
 			stop("at least 2 CLUSTERS")
 		}else{
@@ -120,6 +120,3 @@ Samp_slct <- function() {
 
 
 Samp_slct()
-
-
-
