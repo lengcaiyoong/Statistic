@@ -15,6 +15,7 @@ SRS = function(s_out, variable_lvl){
 			g_squared[i] <- GTest(shuffled)$statistic
 					}
 			p_value = length(g_squared[g_squared >= observed_value])/nsims
+		clc()
 		cat(suppressWarnings(chisq.test(table(s_out$IDENTITY.STATUS))$p.value), "(CHISQUARE P-VALUE)","\n", p_value, "(EXACT TEST P-VALUE)","\n")
 					}
 	else{
@@ -25,3 +26,4 @@ SRS = function(s_out, variable_lvl){
 
 
 SRS(s_out, variable_lvl)
+
