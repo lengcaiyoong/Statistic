@@ -4,6 +4,7 @@ SRS = function(s_out, variable_lvl){
 	   stop("Non-response detected! Please proceed to DOUBLE PHASE SAMPLING")
 	    }
 	else if( (sum(as.integer(table(s_out$IDENTITY.STATUS))) / length(unique(s_out$IDENTITY.STATUS))) < 5){
+		cat("\n", "It may take some time, BE PATIENT", "\n")
 		original_data <- s_out$IDENTITY.STATUS
 		nsims = 100000
 		domain_ident <- variable_lvl
@@ -24,4 +25,3 @@ SRS = function(s_out, variable_lvl){
 
 
 SRS(s_out, variable_lvl)
-
