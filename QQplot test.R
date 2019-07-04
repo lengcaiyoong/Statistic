@@ -35,4 +35,5 @@
 	
 	if (qq_pv <.05) cat("\n",  "since", qq_pv, "< .05, disprove NORMALITY assumption", "\n","\n" )	else cat("\n", "since", qq_pv,">.05, MAYBE generated from normal distribution", "\n","\n")
 
-
+	hist(cor_stor)
+	abline(v=cor_oridata, col='red')
