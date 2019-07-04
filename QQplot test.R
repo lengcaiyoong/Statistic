@@ -13,7 +13,7 @@
 	ANS <- readline(noquote("Have you named it? [Y/N]: "))	
 
 	Proceed = function(ANS){
-	if (ANS == "N" | ANS == "n"){
+	if (ANS == "N" | ANS == "n" | ANS == "no" |  ANS == "NO" |  ANS == "No"){
 	 stop("Please name it!!")
 					     } 
 				   }
