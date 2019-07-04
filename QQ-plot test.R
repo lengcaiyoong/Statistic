@@ -33,7 +33,7 @@
 	
 	qq_pv = length(which(cor_stor <= cor_oridata)) / nsims
 	
-	if (qq_pv <.05) cat("\n",  "since", qq_pv, "< .05, disprove NORMALITY assumption", "\n","\n" )	else cat("\n", "since", qq_pv,">.05, MAYBE generated from normal distribution", "\n","\n")
+	if (qq_pv <.05) cat("\n",  "since", qq_pv, "< .05, disprove NORMALITY assumption N ~ (" ,mean(ori_data),",",sd(ori_data), ")" , "\n","\n" )	else cat("\n", "since", qq_pv,">.05, MAYBE generated from a normal distribution", "\n","\n")
 
 	hist(cor_stor,breaks=200, main="QQ-PLOT TEST")
 	abline(v=cor_oridata, col='red')
