@@ -20,7 +20,7 @@ cat(
   "\n","\n",
   "3. Convert Y variable to order factor eg. factor(grp_data$Response,ordered=T)",
   "\n","\n",
-  '4. If there are 2 Xs and 1 Y, it would have three columns, with the last column as "Count" eg. ', 
+  '4. If there are 1 X and 1 Y, it would have three columns, with the last column as "Count" eg. ', 
   "\n","\n"
   )
 
@@ -31,7 +31,7 @@ head(read.table(url("https://newonlinecourses.science.psu.edu/stat504/sites/onli
 
 
 
-ANS <- readline(noquote("Have you name it? [Y/N]  : "))
+ANS <- readline(noquote("Have you finished all of the above? [Y/N]  : "))
 
 if (ANS == "No" | ANS =="no" | ANS =="n" | ANS =="N" | ANS == "NO"){
   break("please name it")
