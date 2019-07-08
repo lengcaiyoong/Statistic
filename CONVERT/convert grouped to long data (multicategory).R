@@ -52,6 +52,6 @@ print(table(grp_data.df))
 
 print("NAME of data = grp_data.df")
 
-print("REMINDER: CHANGE the class of column if it is factor or numeric")
+print("REMINDER: remember to CHECK the class of column if it is factor or numeric")
 
 
