@@ -18,3 +18,16 @@ group = c(5,10)                           #wanna group column 1 into <= 5 or mor
 dat <- Assign(dat,1,interval)               #v = 1
 dat
 
+
+
+
+#decide the length of interval
+library(Hmisc)
+x <- runif(1000, 0, 100)
+z <- cut2(x, c(10,20,30))
+table(z)
+table(cut2(x, g=10))      # quantile groups
+table(cut2(x, m=50))      # group x into intevals with at least 50 obs
+
+
+
