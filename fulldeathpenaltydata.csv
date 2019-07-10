@@ -1,0 +1,235 @@
+"","Country","DS","FRE","HDI"
+"1","Afghanistan","RET","NF",0.498
+"2","Albania","FAB","PF",0.785
+"3","Andorra","FAB","F",0.858
+"4","Angola","FAB","NF",0.581
+"5","Argentina","FAB","F",0.825
+"6","Armenia","FAB","PF",0.755
+"7","Australia","FAB","F",0.939
+"8","Austria","FAB","F",0.908
+"9","Azerbaijan","FAB","NF",0.757
+"10","Bahamas","RET","F",0.807
+"11","Bahrain","RET","NF",0.846
+"12","Bangladesh","RET","PF",0.608
+"13","Barbados","RET","F",0.8
+"14","Belarus","RET","NF",0.808
+"15","Belgium","FAB","F",0.916
+"16","Belize","RET","F",0.708
+"17","Benin","FAB","F",0.515
+"18","Bhutan","FAB","PF",0.612
+"19","Botswana","RET","F",0.717
+"20","Brazil","HAB","F",0.759
+"21","Bulgaria","FAB","F",0.813
+"22","Burundi","FAB","NF",0.417
+"23","Cambodia","FAB","NF",0.582
+"24","Canada","FAB","F",0.926
+"25","Chad","RET","NF",0.404
+"26","Chile","HAB","F",0.843
+"27","China","RET","NF",0.752
+"28","Colombia","FAB","PF",0.747
+"29","Comoros","RET","PF",0.503
+"30","Congo","FAB",NA,0.606
+"31","Croatia","FAB","F",0.831
+"32","Cuba","RET","NF",0.777
+"33","Cyprus","FAB","F",0.869
+"34","Denmark","FAB","F",0.929
+"35","Djibouti","FAB","NF",0.476
+"36","Dominica","RET","F",0.715
+"37","Ecuador","FAB","PF",0.752
+"38","Egypt","RET","NF",0.696
+"39","Estonia","FAB","F",0.871
+"40","Ethiopia","RET","NF",0.463
+"41","Fiji","FAB","PF",0.741
+"42","Finland","FAB","F",0.92
+"43","France","FAB","F",0.901
+"44","Gabon","FAB","NF",0.702
+"45","Gambia","RET",NA,0.46
+"46","Georgia","FAB","PF",0.78
+"47","Germany","FAB","F",0.936
+"48","Greece","FAB","F",0.87
+"49","Guatemala","HAB","PF",0.65
+"50","Guinea","FAB","PF",0.459
+"51","Guyana","RET","F",0.654
+"52","Haiti","FAB","PF",0.498
+"53","Honduras","FAB","PF",0.617
+"54","Hungary","FAB","F",0.838
+"55","Iceland","FAB","F",0.935
+"56","India","RET","F",0.64
+"57","Indonesia","RET","PF",0.694
+"58","Iraq","RET","NF",0.685
+"59","Ireland","FAB","F",0.938
+"60","Israel","HAB","F",0.903
+"61","Italy","FAB","F",0.88
+"62","Jamaica","RET","F",0.732
+"63","Japan","RET","F",0.909
+"64","Jordan","RET","PF",0.735
+"65","Kazakhstan","HAB","NF",0.8
+"66","Kiribati","FAB","F",0.612
+"67","Kuwait","RET","PF",0.803
+"68","Kyrgyzstan","FAB","PF",0.672
+"69","Latvia","FAB","F",0.847
+"70","Lebanon","RET","PF",0.757
+"71","Lesotho","RET","PF",0.52
+"72","Libya","RET","NF",0.706
+"73","Liechtenstein","FAB","F",0.916
+"74","Lithuania","FAB","F",0.858
+"75","Luxembourg","FAB","F",0.904
+"76","Madagascar","FAB","PF",0.519
+"77","Malaysia","RET","PF",0.802
+"78","Malta","FAB","F",0.878
+"79","Mauritius","FAB","F",0.79
+"80","Mexico","FAB","PF",0.774
+"81","Mongolia","FAB","F",0.741
+"82","Montenegro","FAB","PF",0.814
+"83","Mozambique","FAB","PF",0.437
+"84","Namibia","FAB","F",0.647
+"85","Nepal","FAB","PF",0.574
+"86","Netherlands","FAB","F",0.931
+"87","Nicaragua","FAB","PF",0.658
+"88","Nigeria","RET","PF",0.532
+"89","Norway","FAB","F",0.953
+"90","Oman","RET","NF",0.821
+"91","Pakistan","RET","PF",0.562
+"92","Palau","FAB","F",0.798
+"93","Panama","FAB","F",0.789
+"94","Paraguay","FAB","PF",0.702
+"95","Peru","HAB","F",0.75
+"96","Philippines","FAB","PF",0.699
+"97","Poland","FAB","F",0.865
+"98","Portugal","FAB","F",0.847
+"99","Qatar","RET","NF",0.856
+"100","Romania","FAB","F",0.811
+"101","Rwanda","FAB","NF",0.524
+"102","Samoa","FAB","F",0.713
+"103","Senegal","FAB","F",0.505
+"104","Seychelles","FAB","PF",0.797
+"105","Singapore","RET","PF",0.932
+"106","Slovakia","FAB","F",0.855
+"107","Slovenia","FAB","F",0.896
+"108","Spain","FAB","F",0.891
+"109","Sudan","RET","NF",0.502
+"110","Suriname","FAB","F",0.72
+"111","Sweden","FAB","F",0.933
+"112","Switzerland","FAB","F",0.944
+"113","Thailand","RET","NF",0.755
+"114","Togo","FAB","PF",0.503
+"115","Turkey","FAB","NF",0.791
+"116","Turkmenistan","FAB","NF",0.706
+"117","Uganda","RET","PF",0.516
+"118","Ukraine","FAB","PF",0.751
+"119","Uruguay","FAB","F",0.804
+"120","Uzbekistan","FAB","NF",0.71
+"121","Vanuatu","FAB","F",0.603
+"122","Yemen","RET","NF",0.452
+"123","Zimbabwe","RET","NF",0.535
+"124","Abkhazia",NA,"PF",NA
+"125","Algeria",NA,"NF",0.754
+"126","Antigua and Barbuda",NA,"F",0.78
+"127","Bolivia",NA,"PF",NA
+"128","Bosnia and Herzegovina",NA,"PF",0.768
+"129","Brunei",NA,"NF",NA
+"130","Burkina Faso",NA,"PF",0.423
+"131","Cameroon",NA,"NF",0.556
+"132","Cape Verde",NA,"F",NA
+"133","Central African Republic",NA,"NF",0.367
+"134","Congo (Brazzaville)",NA,"NF",NA
+"135","Congo (Kinshasa)",NA,"NF",NA
+"136","Costa Rica",NA,"F",0.794
+"137","Cote d'Ivoire",NA,"PF",NA
+"138","Crimea",NA,"NF",NA
+"139","Czech Republic",NA,"F",NA
+"140","Dominican Republic",NA,"PF",0.736
+"141","El Salvador",NA,"F",0.674
+"142","Equatorial Guinea",NA,"NF",0.591
+"143","Eritrea",NA,"NF",0.44
+"144","Gaza Strip",NA,"NF",NA
+"145","Ghana",NA,"F",0.592
+"146","Grenada",NA,"F",0.772
+"147","Guinea-Bissau",NA,"PF",0.455
+"148","Hong Kong",NA,"PF",NA
+"149","Indian Kashmir",NA,"PF",NA
+"150","Iran",NA,"NF",NA
+"151","Kenya",NA,"PF",0.59
+"152","Kosovo",NA,"PF",NA
+"153","Laos",NA,"NF",NA
+"154","Liberia",NA,"PF",0.435
+"155","Macedonia",NA,"PF",NA
+"156","Malawi",NA,"PF",0.477
+"157","Maldives",NA,"PF",0.717
+"158","Mali",NA,"PF",0.427
+"159","Marshall Islands",NA,"F",0.708
+"160","Mauritania",NA,"NF",0.52
+"161","Micronesia",NA,"F",NA
+"162","Moldova",NA,"PF",NA
+"163","Monaco",NA,"F",NA
+"164","Morocco",NA,"PF",0.667
+"165","Myanmar",NA,"PF",0.578
+"166","Nagorno-Karabakh",NA,"PF",NA
+"167","Nauru",NA,"F",NA
+"168","New Zealand",NA,"F",0.917
+"169","Niger",NA,"PF",0.354
+"170","North Korea",NA,"NF",NA
+"171","Northern Cyprus",NA,"F",NA
+"172","Pakistani Kashmir",NA,"NF",NA
+"173","Papua New Guinea",NA,"PF",0.544
+"174","Russia",NA,"NF",NA
+"175","San Marino",NA,"F",NA
+"176","Sao Tome and Principe",NA,"F",0.589
+"177","Saudi Arabia",NA,"NF",0.853
+"178","Serbia",NA,"F",0.787
+"179","Sierra Leone",NA,"PF",0.419
+"180","Solomon Islands",NA,"F",0.546
+"181","Somalia",NA,"NF",NA
+"182","Somaliland",NA,"PF",NA
+"183","South Africa",NA,"F",0.699
+"184","South Korea",NA,"F",NA
+"185","South Ossetia",NA,"NF",NA
+"186","South Sudan",NA,"NF",0.388
+"187","Sri Lanka",NA,"PF",0.77
+"188","St. Kitts and Nevis",NA,"F",NA
+"189","St. Lucia",NA,"F",NA
+"190","St. Vincent and the Grenadines",NA,"F",NA
+"191","Swaziland",NA,"NF",NA
+"192","Syria",NA,"NF",NA
+"193","Taiwan",NA,"F",NA
+"194","Tajikistan",NA,"NF",0.65
+"195","Tanzania",NA,"PF",NA
+"196","The Gambia",NA,"PF",NA
+"197","Tibet",NA,"NF",NA
+"198","Timor-Leste",NA,"F",0.625
+"199","Tonga",NA,"F",0.726
+"200","Transnistria",NA,"NF",NA
+"201","Trinidad and Tobago",NA,"F",0.784
+"202","Tunisia",NA,"F",0.735
+"203","Tuvalu",NA,"F",NA
+"204","United Arab Emirates",NA,"NF",0.863
+"205","United Kingdom",NA,"F",0.922
+"206","United States",NA,"F",0.924
+"207","Venezuela",NA,"NF",NA
+"208","Vietnam",NA,"NF",NA
+"209","West Bank",NA,"NF",NA
+"210","Western Sahara",NA,"NF",NA
+"211","Zambia",NA,"PF",0.588
+"212","Bolivia (Plurinational State of)",NA,NA,0.693
+"213","Brunei Darussalam",NA,NA,0.853
+"214","C?te d'Ivoire",NA,NA,0.492
+"215","Cabo Verde",NA,NA,0.654
+"216","Congo (Democratic Republic of the)",NA,NA,0.457
+"217","Czechia",NA,NA,0.888
+"218","Eswatini (Kingdom of)",NA,NA,0.588
+"219","Hong Kong, China (SAR)",NA,NA,0.933
+"220","Iran (Islamic Republic of)",NA,NA,0.798
+"221","Korea (Republic of)",NA,NA,0.903
+"222","Lao People's Democratic Republic",NA,NA,0.601
+"223","Micronesia (Federated States of)",NA,NA,0.627
+"224","Moldova (Republic of)",NA,NA,0.7
+"225","Palestine, State of",NA,NA,0.686
+"226","Russian Federation",NA,NA,0.816
+"227","Saint Kitts and Nevis",NA,NA,0.778
+"228","Saint Lucia",NA,NA,0.747
+"229","Saint Vincent and the Grenadines",NA,NA,0.723
+"230","Syrian Arab Republic",NA,NA,0.536
+"231","Tanzania (United Republic of)",NA,NA,0.538
+"232","The former Yugoslav Republic of Macedonia",NA,NA,0.757
+"233","Venezuela (Bolivarian Republic of)",NA,NA,0.761
+"234","Viet Nam",NA,NA,0.694
