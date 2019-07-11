@@ -1,7 +1,7 @@
 #logistic regression
 
 ### DEATH PENALTY:
-#     Do economic development and political freedom related to legalization of death penalty?
+#     Are economic development and political freedom related to legalization of death penalty?
 #     Currently I have found 2 indicators to measure both of the variables, namely HDI (human development index)   
 #     and freedom house rating. I have combined all the required information and uploaded on GitHub.
 #
