@@ -22,8 +22,6 @@ class(cheese$Response)
 contrasts(cheese$Cheese)=contr.treatment(levels(cheese$Cheese),base=1)
 contrasts(cheese$Cheese)
 
-
-
       #run analysis
 library(VGAM)
 fit <- vglm( Response ~ Cheese, family= cumulative(parallel = TRUE),data=grp_data.df)
@@ -35,7 +33,12 @@ ologit <- lrm(Response~Cheese,data=cheese)
       #https://youtu.be/vDXEo2vzKbQ
 
 
-      #Intepretation and summary
+
+
+      ###Intepretation and summary###
+
+
+
 
 ##01
 #   Obviously, Cheese A and D show increasing trend, but B from the other end.
@@ -65,10 +68,7 @@ ologit <- lrm(Response~Cheese,data=cheese)
 #      
       
       exp(3.3518)
-      
-
-      
-      
+     
       
 ##05
 #   Let's interpret in terms of probability. When j = 4,
