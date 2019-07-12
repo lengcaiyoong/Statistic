@@ -330,7 +330,12 @@ t(estimated_fitF)    #predicted values from fitF model
 
 
 
-###05 Conclusion
+
+
+
+
+
+###06 Conclusion
 #     Let's look at the six graph plotted. Firstly, take a look at 3 graphs at first row.
 #       As you can see, the green line PARTLY FREE is quite stable across HDI. Besides, it is quite close
 #       to the black line FREE. This somewhat explains why the collapsed FRE gives smaller p-value for interaction term than uncollapsed.
