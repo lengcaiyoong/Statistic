@@ -1,9 +1,13 @@
-#baseline category logit
+#multicategory-baseline category logit
 
 ## Introduction
 #     In previous part, I've utilized binomial logistic regression to fit the data. Although the effect is significant.
-#       The results look weird. Thus, I decided to separate "Partly Abolishment" from "Retention", and fit
+#       The result looks weird. Thus, I decided to separate "Partly Abolishment" from "Retention", and fit
 #       the data with multicategory logit model to see if I can come up different conclusion.
+
+
+
+
 
 
 ###01 Enter data and variables
@@ -28,6 +32,10 @@ head(DP)
 # Set reference level
 contrasts(DP$FRE)=contr.treatment(levels(DP$FRE),base=1)  #F as baseline
 contrasts(DP$FRE)
+
+
+
+
 
 
 
@@ -74,7 +82,11 @@ round(prop.table(t(as.matrix(ftable(DP$CFRE,DP$fHDI,DP$DS))),2),3)  #column tota
 
 
 
-###02 Run Analysis
+
+
+
+
+###03 Run Analysis
 library(VGAM)
 fit0 <- vglm(DS~1, family=multinomial , data=DP)   #null model
 fitF <- vglm(DS~FRE, family=multinomial(refLevel="FAB") , data=DP)  #FAB as base
@@ -114,7 +126,12 @@ pv_calculator <- function(fit){
 
 
 
-###03 Summary and Interpretation
+
+
+
+
+
+###04 Summary and Interpretation
 #(a) As mentioned, the interaction term nearly significants only when the FRE is collapsed.
 #       However, AIC decreases when additional term is added, although only little reduction.
 #
@@ -166,7 +183,11 @@ pchisq(deviance(fitF) - deviance(fitFH), df.residual(fitF) - df.residual(fitFH),
 
 
 
-###04 Summary of Effect (in terms of probabilities)
+
+
+
+
+###05 Summary of Effect (in terms of probabilities)
 
 #(a) The estimated probabilities of FRE*HDI model (fitI)
 
@@ -309,8 +330,7 @@ t(estimated_fitF)    #predicted values from fitF model
 
 
 
-
-#(e) Conclusion
+###05 Conclusion
 #     Let's look at the six graph plotted. Firstly, take a look at 3 graphs at first row.
 #       As you can see, the green line PARTLY FREE is quite stable across HDI. Besides, it is quite close
 #       to the black line FREE. This somewhat explains why the collapsed FRE gives smaller p-value for interaction term than uncollapsed.
