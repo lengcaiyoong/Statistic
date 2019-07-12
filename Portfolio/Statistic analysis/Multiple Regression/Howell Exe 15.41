@@ -3,7 +3,7 @@
 #Exercise 15.41
 #   When the authors used both the Just-World Prime and Global Warming Skepticism as
 #       predictors, the standardized regression coefficients between Just-World Prime and Willingness
-#       to Reduce Carbon Footprint dropped to 20.16, with a standard error of 0.13
+#       to Reduce Carbon Footprint dropped to 20.16, with a standard error of 0.13. Is there any mediating effect?
 
 Wdat <- cbind(BetaWeight = c(0.33,-0.6,-0.34),
 SE = c(0.15,0.025,0.15))
