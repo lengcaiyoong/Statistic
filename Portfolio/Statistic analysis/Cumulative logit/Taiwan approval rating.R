@@ -5,8 +5,6 @@
 
 
 
-
-
 ##  Enter Data
 Count = c(3,4,81,154,4,11,83,77,9,14,0,2,9,14,1,0,4,1,1,0,0,22,58,15,6,1,19,81,92,16,0,4,17,27,3
           )
@@ -18,6 +16,7 @@ head(app)
 grp_data <- app  #for conversion purpose
 
 
+
 ##  Convert to long format data
 source("https://raw.githubusercontent.com/lengcaiyoong/Statistic/master/CONVERT/convert%20grouped%20to%20long%20data%20(multicategory).R")
   #Press Y and enter if done
@@ -25,6 +24,7 @@ class(grp_data.df$Party)  #check if this column is factor
 class(grp_data.df$Response) #check if it is ordered
 App <- grp_data.df  #rename data
 head(App);tail(App)
+
 
 
 ##  Set reference level
@@ -35,8 +35,9 @@ contrasts(App$Party)
 
 
 
+###  Summary and Interpretation     ###
 
-###  Summary and Interpretation
+
 
 
 
@@ -46,7 +47,6 @@ contrasts(App$Party)
 #     in fact, the degree of diagreement of NEU is high.
 
 table(App)
-
 
 
 
@@ -62,7 +62,6 @@ table(App)
 #03
 #   Formulate the questions:
 #     Do the coefficients of ERA and NEU significantly differ from zero?
-
 
 
 
@@ -89,9 +88,6 @@ ologit0 <- lrm(Response ~ 1,data=App)
 ologit ; pchisq(1.08^2,1,lower.tail=F) #Another way to test coefficients eg. NEWD
 
 
-
-
-
 # Calculate the effect in terms of probabilities
 predict_ologit <- predict(ologit,newdata=App,type="fitted.ind")
 prediction_ologit <- data.frame(Party=unique(App$Party), 
@@ -101,13 +97,12 @@ effect_ologit<-cbind(   # Effect of each row in terms of probabilities
     apply(prediction_ologit[,c(2:4)],1,sum),
     apply(prediction_ologit[,c(5:6)],1,sum)
                     )
+
 colnames(effect_ologit) <- c("Like", "Dislike") #rename the column
 rownames(effect_ologit) <- prediction_ologit$Party  #rename the row
 
 
-
-
-#bootstrap estimation of 95%  confidence interval
+#Bootstrap estimation of 95%  confidence interval
 #Parameter
 nsims = 2000
 df_stor <- list()
@@ -134,14 +129,12 @@ for (i in 1:nsims){
 }
 
 
-#check if any level missing during bootstrapping
+
+#Check if any level missing during bootstrapping
 length(which(is.na(coe_stor)))  #should have no NA
 length(which(is.na(coe_stor2)))
 unique(len_ck)  #should have the same length with length(coef(ologit))
 unique(len_ck2)
-
-
-
 
 
 
@@ -175,10 +168,8 @@ unique(len_ck2)
     
     #compare the values provided by software with the quantiles
     coef(ologit)[[8]] + coef(ologit)[[2]] ; coef(ologit)[[9]] + coef(ologit)[[2]]
-    
-    
-    
-    
+     
+
 
 #     Lastly, let's look at the effect in terms of probabilities.
 #       From the table, we can see that both NEU and ERA have higher chances to be categoried into higher categories, namely
