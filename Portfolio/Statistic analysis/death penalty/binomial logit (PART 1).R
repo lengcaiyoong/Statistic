@@ -69,7 +69,8 @@ contrasts(DPb$FRE)
 
 
 
-###01 Cross Tabulation Analysis
+
+###02 Cross Tabulation Analysis
 
 
 # Enter Variable
@@ -106,7 +107,9 @@ round(table(subset(DPb, DPb$DS == 1)[,c(3,4,7)][,c(2:3)]) / table(DPb$FRE,DPb$fH
 
 
 
-###02 Running Analysis
+
+
+###03 Running Analysis
 fitF  <- glm(DS~FRE,family=binomial,data=DPb)
 fitH  <- glm(DS~HDI,family=binomial,data=DPb)
 fitFH  <- glm(DS~FRE+HDI,family=binomial,data=DPb)
@@ -118,7 +121,9 @@ null <- glm(DS~1,family=binomial,data=DPb)
 
 
 
-###03 Summary and Interpretation
+
+
+###04 Summary and Interpretation
 #(a) As predicted, interaction effect exists. It is almost significant! The calculation is presented as well. All calculated results 
 #     should be identical with the results calculated from Anova software package.
 
@@ -140,8 +145,6 @@ pchisq((fitF$deviance - fitFH$deviance),(fitF$df.residual - fitFH$df.residual),l
 fitH$deviance - fitFH$deviance        #residual deviance
 fitH$df.residual - fitFH$df.residual  #df of residual deviance
 pchisq((fitH$deviance - fitFH$deviance ),(fitH$df.residual - fitFH$df.residual),lower.tail=F)
-
-
 
 
 
@@ -178,7 +181,9 @@ AIC(fitI2)          #AIC of interaction smaller!
 
 
 
-###04 Summary of Effect (in terms of probabilities)
+
+
+###05 Summary of Effect (in terms of probabilities)
 
     
 #(a) The estimated probabilities of CFRE*HDI model (fitI2)
@@ -256,7 +261,7 @@ print(estimated_fitI2)             #NF countries has 0.78 chance while F only ha
 
 
 
-###04 Model Fitting
+###06 Model Fitting
 #   Before I made the conclusion, let's check if one of the model, such as FRE model, fits enough?
 #     In other words, does the model only include FRE variable better than any complex model?
 #   The residual deviance test shows nearly significant result, thus, complex model doesn't significantly
@@ -282,7 +287,7 @@ length(which(abs(fit_table$Pearson) >=1.8))
 
 
 
-###04 Conclusion
+###07 Conclusion
 #   However, the interaction result is contrary to our beliefs, especially the boost in P(RET) of NF 
 #     after HDI > 0.7. Since I've combined both Retention and partly abolishment into the same category,
 #     does this graph still look the same if I separate it out? In other words, is this boosted effect contributed 
