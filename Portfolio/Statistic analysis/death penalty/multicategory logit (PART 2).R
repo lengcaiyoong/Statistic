@@ -1,24 +1,9 @@
 #baseline category logit
 
-#Questions:
-# Is there any interaction?
-# Is there any main effect?
-# Is the effect huge? (probabilities explanation) held constant, the boost disappear
-# Plot graph
-# Results any diff between binomial logistic?
-# Type 1 error expansion
-# ASSUMPTION:  this data are samples,ignore nonresponse (In fact, if complete world data, no need to run statistical inference! Population data!)
-
-
-
 ## Introduction
 #     In previous part, I've utilized binomial logistic regression to fit the data. Although the effect is significant.
 #       The results look weird. Thus, I decided to separate "Partly Abolishment" from "Retention", and fit
 #       the data with multicategory logit model to see if I can come up different conclusion.
-
-
-
-
 
 
 ###01 Enter data and variables
