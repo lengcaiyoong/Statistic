@@ -38,15 +38,12 @@ abline(h=mean(dat$dv),col="red")
 
 #01   Result is significant! 
 #
-
 summary(anova1)
 
 
 
 #02   PostHoc Test
 #       Using TukeyHSD test, we found that Group 4 is significant different from Group 0 and 8
-
-
 
 #(a) Critical value (in terms of mean difference)
 #     Group means difference should be more than 1.732 in order to show significance   
@@ -56,18 +53,14 @@ dat_mean$tables$Group[order(dat_mean$tables$Group)] #sort the means in ascending
      #(4) =/= (0,8)
 
 
-
 #(b) Critical value in terms of q
 #     Calculated q should more than 3.98 in order to show significance
 
 qtukey(0.95,5,55,lower.tail=T)
-
 (1.8025-0.6750) / sqrt(  2.263  / 12)    # Difference between Group 0 and Group 2 <3.9
 ptukey(2.59636,5,55,lower.tail=F)        # pv >.05
-
 (1.8891667+0.9125) / sqrt(  2.263  / 12) #Group Difference between 8 and 4 >3.9
 ptukey(6.451561,5,55,lower.tail=F)       # pv <.05
-
 
 
 #(c) All pairwise test
