@@ -6,6 +6,7 @@ dat = read.table(url("http://www.uvm.edu/~dhowell/methods8/DataFiles/Tab13-2.dat
 str(dat)
 
 
+
 #02 convert column to factor
 dat$Age <- factor(c("Young", "Old")[dat$Age], levels=c("Young", "Old"))
 dat$Condition <- factor(c("C1", "C2","C3","C4","C5")[dat$Condition])
@@ -28,7 +29,6 @@ dat_c5 <- subset(dat, dat$Condition=="C5")
 
 
 
-
 #04 run Anova
 aov1 <- aov(Recall~Age*Condition, data=dat)  #model with interaction term
 
@@ -42,13 +42,10 @@ aovc5 <- aov(Recall~Age, data=dat_c5)
 
 
 
-
 ###    Interpretation    ###
 #   Interaction significance found! 
 #     under both Age, condition effects significant, but SS is different (351.5 vs 1354)
 #     under Condition, c1 and c2 not significant, but others do (diff between age group occur in higher mental processing)
-
-
 
 summary(aov1)   #interaction significants
 summary(aovY)   #condition effect significants in Young
@@ -62,11 +59,7 @@ TukeyHSD(aov1,'Age')
 TukeyHSD(aov1,'Age:Condition')
 
 
-
-
 #(a) plot graph of interaction
-
-
 par(mfrow=c(1,2))
 barplot(ac_mean,beside=T,legend.text = T, ylab="Recall",
         ylim=c(0,max(dat$Recall)+5) ,xlab="Condition" ,xlim=c(0,20))
@@ -79,6 +72,3 @@ interaction.plot(x.factor = dat$Condition, trace.factor = dat$Age, response =dat
                  leg.bty = "o",
                  trace.label = "",
                  xlab="Condition"   , ylab="Recall"  )
-
-
-   
