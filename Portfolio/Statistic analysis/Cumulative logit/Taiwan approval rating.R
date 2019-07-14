@@ -192,7 +192,7 @@ barplot(t(effect_ologit),
         xlab = "Like vs Dislike")
 
 abline(h=0.5,col='red', lty=5)
-text(18,0.40,"P(Y)=0.5", col = "blue")
+text(22,0.45,"P(Y)=0.5", col = "blue")
 
 
 
