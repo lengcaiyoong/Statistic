@@ -7,7 +7,7 @@
 
 ##  Enter Data
 Count = c(3,4,81,154,4,11,83,77,9,14,0,2,9,14,1,0,4,1,1,0,0,22,58,15,6,1,19,81,92,16,0,4,17,27,3
-          )
+)
 Party = gl(7, 5, labels= c("KMT","DPP","NEWD","COA",
                            "ERA","NEU","OTHERS"))
 Response = rep(ordered(c(1,2,4,5,3)),7)
@@ -19,7 +19,7 @@ grp_data <- app  #for conversion purpose
 
 ##  Convert to long format data
 source("https://raw.githubusercontent.com/lengcaiyoong/Statistic/master/CONVERT/convert%20grouped%20to%20long%20data%20(multicategory).R")
-  #Press Y and enter if done
+#Press Y and enter if done
 class(grp_data.df$Party)  #check if this column is factor
 class(grp_data.df$Response) #check if it is ordered
 App <- grp_data.df  #rename data
@@ -78,7 +78,7 @@ table(App)
 library(VGAM)
 fit <- vglm( Response ~ Party, family= cumulative(parallel = TRUE),data=App)
 fit0 <- vglm( Response ~ 1, family= cumulative(parallel = TRUE),data=App)
-    #or
+#or
 library(rms)
 contrasts(App$Party)=contr.treatment(levels(App$Party),base=1)
 ologit <- lrm(Response ~ Party,data=App)
@@ -94,9 +94,9 @@ prediction_ologit <- data.frame(Party=unique(App$Party),
                                 apply(round(predict_ologit,4),2,unique))
 
 effect_ologit<-cbind(   # Effect of each row in terms of probabilities
-    apply(prediction_ologit[,c(2:4)],1,sum),
-    apply(prediction_ologit[,c(5:6)],1,sum)
-                    )
+  apply(prediction_ologit[,c(2:4)],1,sum),
+  apply(prediction_ologit[,c(5:6)],1,sum)
+)
 
 colnames(effect_ologit) <- c("Like", "Dislike") #rename the column
 rownames(effect_ologit) <- prediction_ologit$Party  #rename the row
@@ -144,31 +144,31 @@ unique(len_ck2)
 #   Interpret result
 #     Firstly, the model actually fits well. The additional predictors perform better than null model
 
-    lrtest(ologit,ologit0)
+lrtest(ologit,ologit0)
 
 #     Secondly, we gonna check if both coefficients significantly differ from zero.
 #       From both histograms, we can see that most of the resampled coefficients are all well above zero!
 #       Besides, I have chosen the lowest 2.5% and the highest 2.5% from the sample to form the 95% interval.
 #       Both intervals don't cover zero. Thus, we can conclude that they are significantly differ from zero! 
 #       This result therefore agrees with what Chen's statement.
-      
-    
-    #histogram of coefficients
-    par(mfrow=c(1,2))
-    hist(round(coe_stor,4),breaks=40)$counts  #frequency
-    #hist(round(coe_stor,4),breaks=40)$breaks  #which coefficient has the highest freq
-    hist(round(coe_stor2,4),breaks=40)$counts  #frequency
-    #hist(round(coe_stor2,4),breaks=40)$breaks  #which coefficient has the highest freq
-    
-    
-    #create confidence interval of 95%
-    quantile(coe_stor, probs = c(0.025, 0.975)) #interval of ERA
-    quantile(coe_stor2, probs = c(0.025, 0.975)) #interval of NEU
-    
-    
-    #compare the values provided by software with the quantiles
-    coef(ologit)[[8]] + coef(ologit)[[2]] ; coef(ologit)[[9]] + coef(ologit)[[2]]
-     
+
+
+#histogram of coefficients
+par(mfrow=c(1,3))
+hist(round(coe_stor,4),breaks=40)$counts  #frequency
+#hist(round(coe_stor,4),breaks=40)$breaks  #which coefficient has the highest freq
+hist(round(coe_stor2,4),breaks=40)$counts  #frequency
+#hist(round(coe_stor2,4),breaks=40)$breaks  #which coefficient has the highest freq
+
+
+#create confidence interval of 95%
+quantile(coe_stor, probs = c(0.025, 0.975)) #interval of ERA
+quantile(coe_stor2, probs = c(0.025, 0.975)) #interval of NEU
+
+
+#compare the values provided by software with the quantiles
+coef(ologit)[[8]] + coef(ologit)[[2]] ; coef(ologit)[[9]] + coef(ologit)[[2]]
+
 
 
 #     Lastly, let's look at the effect in terms of probabilities.
@@ -176,16 +176,16 @@ unique(len_ck2)
 #       NEU. In addtional, if we fixed at KMT, supporters are almost in the "Dislike" categories.
 #       Although DPP supporters are more likely to rate lower, the difference between the probabilities isn't as huge as KMT.
 #       Thus, this result is sending a warning message to president Tsai about her popularity amongst citizens.
-    
-    
+
+
 effect_ologit
 table(App)
 
-par(mfrow=c(1,1))
+
 barplot(t(effect_ologit), 
         beside = TRUE,
         names.arg = rownames(effect_ologit),
-        xlim=c(1,24),  #scaling
+        xlim=c(1,33),  #scaling
         ylim = c(0,1),
         ylab = "P(Y)",
         legend.text = T,
