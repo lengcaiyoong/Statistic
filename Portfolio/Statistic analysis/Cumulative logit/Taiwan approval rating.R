@@ -1,6 +1,6 @@
 
-##  Professor Chen has conducted a survey to support her theory. Let's check if some of her statement
-#     is statistically valid.
+##  Professor Chen has conducted a survey to support her theory. Let's check if some of her statements
+#     are statistically valid.
 #   Reference: https://tw.news.yahoo.com/%E9%99%B3%E6%98%AD%E5%A6%82%E5%B0%88%E6%AC%84-%E8%94%A1%E8%8B%B1%E6%96%87%E4%B8%8D%E6%BB%BF%E6%84%8F%E5%BA%A6%E7%9A%84%E8%83%8C%E5%BE%8C-%E7%A4%BE%E6%9C%83%E6%B0%91%E4%B8%BB%E5%9C%8B%E7%9A%84%E5%8F%B0%E7%81%A3%E5%85%B1%E8%AD%98-160200606.html
 
 
